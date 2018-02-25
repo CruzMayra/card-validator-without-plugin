@@ -2,6 +2,10 @@ const form = document.querySelector("form");
 const formArray = Array.from(form);
 console.log(formArray);
 
+// const defaultInfo = () => {
+//   localStorage.clear();
+// }
+
 form.addEventListener("submit", e => {
   e.preventDefault();
   if (validateCardDetails(formArray)) {
@@ -57,7 +61,14 @@ const validateCardNumber = card => {
 
 /* ---------- función que valida la fecha de expiración ---------- */
 const validateExpirationDate = date => {
-  console.log(date);
+  const expDate = Date.parse(date);
+  const currentDate = Date.now();
+  if(date === ""){
+    return false
+  }
+  if(expDate <= currentDate){
+    return false
+  }
   return true
 }
 
