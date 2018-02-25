@@ -63,7 +63,15 @@ const validateExpirationDate = date => {
 
 /* ---------- función que valida el cvv ---------- */
 const validateCvv = cvv => {
-  console.log(cvv);
+  if(cvv === ""){
+    return false
+  }
+  if(cvv.length !== 3){
+    return false
+  }
+  if(parseInt(cvv) < 0){
+    return false
+  }
   return true
 }
 
@@ -85,7 +93,7 @@ const validateCardholderName = cardholder => {
   if(arrayShortWords.length !== arrayWords.length){
     return false
   }
-  if(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/.test(cardholder)){
+  if(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/.test(cardholder) === false){
     return false
   }
    return true
