@@ -1,3 +1,13 @@
-body {
-  background-color: #EE6E73;
+.error {
+  background: #F26A8D;
+}
+
+.error label::after {
+  content: 'Favor de ingresar un dato válido';
+  color: whitesmoke;
+}
+
+.success label::after {
+  content: '\2714';
+  color: #59C3C3;
 }

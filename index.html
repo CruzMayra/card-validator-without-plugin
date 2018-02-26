@@ -8,22 +8,26 @@
   <body>
     <form>
       <div class="form-group">
-        <label for="cn">Número de tarjeta</label>
-        <input id="cn" type="text" pattern="[0-9]{16}" name="cn" autocomplete="billing cc-number"/>
+        <label for="cn">Número de tarjeta
+          <input id="cn" type="text" pattern="[0-9]{16}" name="cn" autocomplete="billing cc-number"/>
+        </label>
       </div>
       <div class="form-group">
-        <label for="exp">Fecha de vencimiento</label>
-        <input id="exp" type="month" min="2018-01" max="2028-12" name="exp" autocomplete="billing cc-exp"/>
+        <label for="exp">Fecha de vencimiento
+          <input id="exp" type="month" min="2018-01" max="2028-12" name="exp" autocomplete="billing cc-exp"/>
+        </label>
       </div>
       <div class="form-group">
-        <label for="cvv">CVV</label>
-        <input type ="number" id="cvv" name="cvv" autocomplete="billing cc-csc"/>
+        <label for="cvv">CVV
+          <input type ="number" id="cvv" name="cvv" autocomplete="billing cc-csc"/>
+        </label>
       </div>
       <div class="form-group">
-        <label for="name">Nombre completo</label>
-        <input id="name" type="text" name="name" autocomplete="billing cc-name"/>
+        <label for="name">Nombre completo
+          <input id="name" type="text" name="name" autocomplete="billing cc-name"/>
+        </label>
       </div>
-      <input type="submit" value="Pagar" />
+      <input type="submit" value="Pagar"/>
     </form>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
