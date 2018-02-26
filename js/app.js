@@ -55,8 +55,31 @@ const getFormValues = element => {
 
 /* ---------- función que valida el número de tarjeta ---------- */
 const validateCardNumber = card => {
-  console.log(card);
-  return true
+  if(card === "") {
+    return false
+  }
+  return isValidCard(card)
+}
+
+function isValidCard(cardNumber){
+  const validation =  cardNumber
+    .split("")
+    .map(item => parseInt(item))
+    .reverse()
+    .map((current, index, array) => {
+     if( index % 2){
+       let evenPosition = current * 2;
+       return evenPosition > 9
+         ? 1 + (evenPosition % 10)
+         : evenPosition
+     } else {
+       return current
+     }
+   })
+   .reduce((previous, current) =>{
+      return previous + current
+    });
+    return validation % 10 === 0
 }
 
 /* ---------- función que valida la fecha de expiración ---------- */
