@@ -1,25 +1,15 @@
 const form = document.querySelector("form");
 const formArray = Array.from(form);
-console.log(formArray);
-
-// const defaultInfo = () => {
-//   localStorage.clear();
-// }
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  if (validateCardDetails(formArray)) {
-    console.log("datos válido... enviar...");
-  } else {
-    console.log("datos inválidos");
-  }
+  validateCardDetails(formArray)
 });
 
 /* ---------- función centralizadora de la validación de los datos del tarjetahabiente ---------- */
 const validateCardDetails = element => {
   const formValues = getFormValues(element);
   const validationResults = formValues.reduce((partialResults, item) => {
-    //console.log(item);
     const id = Object.keys(item)[0];
     const value = Object.values(item)[0];
     switch (id) {
@@ -40,7 +30,7 @@ const validateCardDetails = element => {
     }
     return partialResults
   }, {})
-  console.log(validationResults);
+  paintValidation(validationResults);
 }
 
 /* ---------- función que recorre array con datos y obtiene el valor de cada uno ---------- */
@@ -131,4 +121,17 @@ const validateCardholderName = cardholder => {
     return false
   }
    return true
+}
+
+const paintValidation = (object) => {
+  for(key in object) {
+    const labelNode = document.getElementById(key).parentNode.parentNode;
+    if (object[key]) {
+      labelNode.classList.remove('error')
+      labelNode.classList.add('success')
+    } else {
+      labelNode.classList.remove('success')
+      labelNode.classList.add('error')
+    }
+  }
 }
